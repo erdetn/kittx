@@ -1,0 +1,26 @@
+[package]
+name = "kittx-launcher"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+publish = false
+
+[workspace]
+
+[[bin]]
+name = "KittxLauncher"
+path = "main.rs"
+required-features = ["ui"]
+
+[features]
+default = ["ui", "serial"]
+ui = ["dep:gpui-kit", "kittx-viewer/ui", "kittx-recorder/ui", "kittx-analyzer/ui", "kittx-probe/ui"]
+serial = ["kittx-recorder/serial", "kittx-probe/serial"]
+ui-test = ["ui", "gpui-kit/test-support", "kittx-viewer/ui-test", "kittx-recorder/ui-test", "kittx-analyzer/ui-test", "kittx-probe/ui-test"]
+
+[dependencies]
+gpui-kit = { version = "=0.7.3", optional = true }
+kittx-viewer = { path = "../viewerui", default-features = false }
+kittx-recorder = { path = "../kittxrecorder", default-features = false }
+kittx-analyzer = { path = "../kittxanalyzer", default-features = false }
+kittx-probe = { path = "../kittxprobe", default-features = false }

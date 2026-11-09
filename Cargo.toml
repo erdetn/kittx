@@ -1,0 +1,39 @@
+[package]
+name = "kittx"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+description = "Synchronous callback-based ELM327 serial and TCP communication"
+
+[features]
+default = ["serial"]
+serial = ["dep:serial2", "dep:nix"]
+datastore = ["dep:rusqlite"]
+
+[dependencies]
+rusqlite = { version = "0.37.0", optional = true, features = ["bundled", "backup"] }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+serial2 = { version = "0.2.37", optional = true }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+nix = { version = "0.30", default-features = false, features = ["term"], optional = true }
+
+[target.'cfg(target_os = "linux")'.dev-dependencies]
+serial2 = { version = "0.2.37", features = ["unix"] }
+
+[[example]]
+name = "record_trip"
+required-features = ["datastore"]
+
+[[example]]
+name = "record_manual"
+required-features = ["datastore"]
+
+[[example]]
+name = "read_recording"
+required-features = ["datastore"]
+
+[[example]]
+name = "record_profile"
+required-features = ["datastore"]

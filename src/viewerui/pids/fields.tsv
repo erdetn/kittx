@@ -1,0 +1,564 @@
+# Numeric PID fields; derived from OBDb/SAEJ1979 06690177d2d5e11dbf82566297128d673b5a03a7
+# Input SHA256: 25aaa40bf024f813f470844a71c4a1ee7f8bdfa61ff7adc5b6f4e60891b7ad33
+# License/provenance and manual supplements: README.md
+# pid	key	name	unit	bit	width	signed	mul	div	add	nullmin	nullmax	support_bits_any	unavailable_bits	wide_range_bit
+01	DTC_CNT	Number of DTCs stored in this ECU	count	1	7	0	1	1	0					
+04	LOAD_PCT	Calculated engine load	%	0	8	0	100	255	0					
+05	ECT	Engine coolant temperature	degC	0	8	0	1	1	-40					
+06	SHRTFT1	Short term fuel trim (bank 1)	%	0	8	0	100	128	-100					
+06	SHRTFT3	Short term fuel trim (bank 3)	%	8	8	0	100	128	-100					
+07	LONGFT1	Long term fuel trim (bank 1)	%	0	8	0	100	128	-100					
+07	LONGFT3	Long term fuel trim (bank 3)	%	8	8	0	100	128	-100					
+08	SHRTFT2	Short term fuel trim (bank 2)	%	0	8	0	100	128	-100					
+08	SHRTFT4	Short term fuel trim (bank 4)	%	8	8	0	100	128	-100					
+09	LONGFT2	Long term fuel trim (bank 2)	%	0	8	0	100	128	-100					
+09	LONGFT4	Long term fuel trim (bank 4)	%	8	8	0	100	128	-100					
+0A	FP	Fuel pressure	kPa	0	8	0	3	1	0					
+0B	MAP	Intake manifold absolute pressure	kPa	0	8	0	1	1	0					
+0C	RPM	Engine RPM	rpm	0	16	0	1	4	0					
+0D	VSS	Vehicle speed	km/h	0	8	0	1	1	0					
+0E	SPARKADV	Timing advance	deg	0	8	0	1	2	-64					
+0F	IAT	Intake air temperature	degC	0	8	0	1	1	-40					
+10	MAF	Air flow rate from mass air flow sensor	g/s	0	16	0	1	100	0					
+11	TP	Absolute throttle position	%	0	8	0	100	255	0					
+14	O2S11	Oxygen sensor 1 voltage	V	0	8	0	1	200	0					
+14	SHRTFT11	Oxygen sensor 1 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+15	O2S12	Oxygen sensor 2 voltage	V	0	8	0	1	200	0					
+15	SHRTFT12	Oxygen sensor 2 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+16	O2S13	Oxygen sensor 3 voltage	V	0	8	0	1	200	0					
+16	SHRTFT13	Oxygen sensor 3 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+17	O2S14	Oxygen sensor 4 voltage	V	0	8	0	1	200	0					
+17	SHRTFT14	Oxygen sensor 4 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+18	O2S21	Oxygen sensor 5 voltage	V	0	8	0	1	200	0					
+18	SHRTFT21	Oxygen sensor 5 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+19	O2S22	Oxygen sensor 6 voltage	V	0	8	0	1	200	0					
+19	SHRTFT22	Oxygen sensor 6 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+1A	O2S23	Oxygen sensor 7 voltage	V	0	8	0	1	200	0					
+1A	SHRTFT23	Oxygen sensor 7 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+1B	O2S24	Oxygen sensor 8 voltage	V	0	8	0	1	200	0					
+1B	SHRTFT24	Oxygen sensor 8 short-term fuel trim	%	8	8	0	100	128	-100		99.2			
+1F	RUNTM	Time since engine start	s	0	16	0	1	1	0					
+21	MIL_DIST	Distance traveled while MIL was activated	km	0	16	0	1	1	0					
+22	FRP_REL	Fuel pressure relative to manifold vacuum	kPa	0	16	0	0.079	1	0					
+23	FRP	Fuel rail pressure	kPa	0	16	0	10	1	0					
+24	LAMBDA11_VOLT	Oxygen sensor 1 equivalence ratio	ratio	0	16	0	1	32768	0					
+24	O2S11_VOLT	Oxygen sensor 1 voltage	V	16	16	0	1	8192	0					
+25	LAMBDA12_VOLT	Oxygen sensor 2 equivalence ratio	ratio	0	16	0	1	32768	0					
+25	O2S12_VOLT	Oxygen sensor 2 voltage	V	16	16	0	1	8192	0					
+26	LAMBDA13_VOLT	Oxygen sensor 3 equivalence ratio	ratio	0	16	0	1	32768	0					
+26	O2S13_VOLT	Oxygen sensor 3 voltage	V	16	16	0	1	8192	0					
+27	LAMBDA14_VOLT	Oxygen sensor 4 equivalence ratio	ratio	0	16	0	1	32768	0					
+27	O2S14_VOLT	Oxygen sensor 4 voltage	V	16	16	0	1	8192	0					
+28	LAMBDA21_VOLT	Oxygen sensor 5 equivalence ratio	ratio	0	16	0	1	32768	0					
+28	O2S21_VOLT	Oxygen sensor 5 voltage	V	16	16	0	1	8192	0					
+29	LAMBDA22_VOLT	Oxygen sensor 6 equivalence ratio	ratio	0	16	0	1	32768	0					
+29	O2S22_VOLT	Oxygen sensor 6 voltage	V	16	16	0	1	8192	0					
+2A	LAMBDA23_VOLT	Oxygen sensor 7 equivalence ratio	ratio	0	16	0	1	32768	0					
+2A	O2S23_VOLT	Oxygen sensor 7 voltage	V	16	16	0	1	8192	0					
+2B	LAMBDA24_VOLT	Oxygen sensor 8 equivalence ratio	ratio	0	16	0	1	32768	0					
+2B	O2S24_VOLT	Oxygen sensor 8 voltage	V	16	16	0	1	8192	0					
+2C	EGR_PCT	Commanded EGR	%	0	8	0	100	255	0					
+2D	EGR_ERR	EGR error	%	0	8	0	100	128	-100					
+2E	EVAP_PCT	Commanded evaporative purge	%	0	8	0	100	255	0					
+2F	FLI	Fuel tank level	%	0	8	0	100	255	0					
+30	WARM_UPS	Number of warm-ups since diagnostic trouble codes cleared	count	0	8	0	1	1	0					
+31	CLR_DIST	Distance traveled since diagnostic trouble codes cleared	km	0	16	0	1	1	0					
+32	EVAP_VP	Evap system vapor pressure	kPa	0	16	1	1	4000	0					
+33	BARO	Barometric pressure	kPa	0	8	0	1	1	0					
+34	LAMBDA11_CURRENT	Oxygen sensor 1 equivalence ratio	ratio	0	16	0	1	32768	0					
+34	O2S11_CURRENT	Oxygen sensor 1 current	mA	16	16	0	1	256	-128					
+35	LAMBDA12_CURRENT	Oxygen sensor 2 equivalence ratio	ratio	0	16	0	1	32768	0					
+35	O2S12_CURRENT	Oxygen sensor 2 current	mA	16	16	0	1	256	-128					
+36	LAMBDA13_CURRENT	Oxygen sensor 3 equivalence ratio	ratio	0	16	0	1	32768	0					
+36	O2S13_CURRENT	Oxygen sensor 3 current	mA	16	16	0	1	256	-128					
+37	LAMBDA14_CURRENT	Oxygen sensor 4 equivalence ratio	ratio	0	16	0	1	32768	0					
+37	O2S14_CURRENT	Oxygen sensor 4 current	mA	16	16	0	1	256	-128					
+38	LAMBDA21_CURRENT	Oxygen sensor 5 equivalence ratio	ratio	0	16	0	1	32768	0					
+38	O2S21_CURRENT	Oxygen sensor 5 current	mA	16	16	0	1	256	-128					
+39	LAMBDA22_CURRENT	Oxygen sensor 6 equivalence ratio	ratio	0	16	0	1	32768	0					
+39	O2S22_CURRENT	Oxygen sensor 6 current	mA	16	16	0	1	256	-128					
+3A	LAMBDA23_CURRENT	Oxygen sensor 7 equivalence ratio	ratio	0	16	0	1	32768	0					
+3A	O2S23_CURRENT	Oxygen sensor 7 current	mA	16	16	0	1	256	-128					
+3B	LAMBDA24_CURRENT	Oxygen sensor 8 equivalence ratio	ratio	0	16	0	1	32768	0					
+3B	O2S24_CURRENT	Oxygen sensor 8 current	mA	16	16	0	1	256	-128					
+3C	CATEMP11	Catalyst temperature bank 1, sensor 1	degC	0	16	0	1	10	-40					
+3D	CATEMP21	Catalyst temperature bank 2, sensor 1	degC	0	16	0	1	10	-40					
+3E	CATEMP12	Catalyst temperature bank 1, sensor 2	degC	0	16	0	1	10	-40					
+3F	CATEMP22	Catalyst temperature bank 2, sensor 2	degC	0	16	0	1	10	-40					
+42	VPWR	Control module voltage	V	0	16	0	1	1000	0					
+43	LOAD_ABS	Absolute load value	%	0	16	0	100	255	0					
+44	EQ_RAT	Commanded equivalence ratio	ratio	0	16	0	1	32768	0					
+45	TP_R	Relative throttle position	%	0	8	0	100	255	0					
+46	AAT	Ambient air temperature	degC	0	8	0	1	1	-40					
+47	TP_B	Absolute throttle position B	%	0	8	0	100	255	0					
+48	TP_C	Absolute throttle position C	%	0	8	0	100	255	0					
+49	APP_D	Accelerator pedal position D	%	0	8	0	100	255	0					
+4A	APP_E	Accelerator pedal position E	%	0	8	0	100	255	0					
+4B	APP_F	Accelerator pedal position F	%	0	8	0	100	255	0					
+4C	TAC_PCT	Commanded throttle actuator control	%	0	8	0	100	255	0					
+4D	MIL_TIME	Time run by the engine while MIL was activated	min	0	16	0	1	1	0					
+4E	CLR_TIME	Engine run time since diagnostic trouble codes cleared	min	0	16	0	1	1	0					
+4F	MAX_EQ_RAT	Maximum value for equivalence ratio	ratio	0	8	0	1	1	0					
+4F	MAX_O2_VOLT	Maximum value for oxygen sensor voltage	V	8	8	0	1	1	0					
+4F	MAX_O2_CURR	Maximum value for oxygen sensor current	mA	16	8	0	1	1	0					
+4F	MAX_MAP	Maximum value for intake manifold absolute pressure (MAP)	kPa	24	8	0	10	1	0					
+50	MAX_MAF	Maximum value for air flow rate from mass air flow sensor	g/s	0	8	0	10	1	0					
+52	ALCH_PCT	Alcohol fuel percentage	%	0	8	0	100	255	0					
+53	EVAP_VPA	Absolute evap system vapor pressure	kPa	0	16	0	1	200	0					
+54	EVAP_VP_WIDE	Evap system vapor pressure (wide)	kPa	0	16	1	1	1000	0					
+55	STSO2FT1	Short term secondary O2 sensor fuel trim (bank 1)	%	0	8	0	100	128	-100					
+55	STSO2FT3	Short term secondary oxygen sensor trim bank 3	%	8	8	0	100	128	-100					
+56	LGSO2FT1	Long term secondary O2 sensor fuel trim (bank 1)	%	0	8	0	100	128	-100					
+56	LGSO2FT3	Long term secondary oxygen sensor trim bank 3	%	8	8	0	100	128	-100					
+57	STSO2FT2	Short term secondary O2 sensor fuel trim (bank 2)	%	0	8	0	100	128	-100					
+57	STSO2FT4	Short term secondary oxygen sensor trim bank 4	%	8	8	0	100	128	-100					
+58	LGSO2FT2	Long term secondary O2 sensor fuel trim (bank 2)	%	0	8	0	100	128	-100					
+58	LGSO2FT4	Long term secondary oxygen sensor trim bank 4	%	8	8	0	100	128	-100					
+59	FRP_ABS	Fuel rail pressure (absolute)	kPa	0	16	0	10	1	0					
+5A	APP_R	Accelerator pedal position (relative)	%	0	8	0	100	255	0					
+5B	BAT_SOC	Hybrid battery pack remaining charge	%	0	8	0	100	255	0					
+5C	EOT	Engine oil temperature	degC	0	8	0	1	1	-40					
+5D	FUEL_TIMING	Fuel injection timing	deg	0	16	0	1	128	-210					
+5E	FUEL_RATE	Engine fuel rate	L/h	0	16	0	1	20	0					
+61	TQ_DD	Driver's demand engine torque	%	0	8	0	1	1	-125					
+62	TQ_ACT	Actual engine torque	%	0	8	0	1	1	-125					
+63	TQ_REF	Engine reference torque	N·m	0	16	0	1	1	0					
+64	TQ_MAX1	Engine Percent Torque At Idle, Point 1	%	0	8	0	1	1	-125					
+64	TQ_MAX2	Engine Percent Torque At Point 2	%	8	8	0	1	1	-125					
+64	TQ_MAX3	Engine Percent Torque At Point 3	%	16	8	0	1	1	-125					
+64	TQ_MAX4	Engine Percent Torque At Point 4	%	24	8	0	1	1	-125					
+64	TQ_MAX5	Engine Percent Torque At Point 5	%	32	8	0	1	1	-125					
+65	GEAR_RCMD	Recommended gear	gear	8	4	0	1	1	0			3		
+66	MAFA	Mass Air Flow Sensor A	g/s	8	16	0	1	32	0			7		
+66	MAFB	Mass Air Flow Sensor B	g/s	24	16	0	1	32	0			6		
+67	ECT_1	Engine coolant temperature 1	degC	8	8	0	1	1	-40			7		
+67	ECT_2	Engine coolant temperature 2	degC	16	8	0	1	1	-40			6		
+68	IAT_11	Intake air temperature, bank 1, sensor 1	degC	8	8	0	1	1	-40			7		
+68	IAT_12	Intake air temperature, bank 1, sensor 2	degC	16	8	0	1	1	-40			6		
+68	IAT_13	Intake air temperature, bank 1, sensor 3	degC	24	8	0	1	1	-40			5		
+68	IAT_21	Intake air temperature, bank 2, sensor 1	degC	32	8	0	1	1	-40			4		
+68	IAT_22	Intake air temperature, bank 2, sensor 2	degC	40	8	0	1	1	-40			3		
+68	IAT_23	Intake air temperature, bank 2, sensor 3	degC	48	8	0	1	1	-40			2		
+69	EGR_A_CMD	Commanded EGR A duty cycle/position	%	8	8	0	100	255	0			7		
+69	EGR_A_ACT	Actual EGR A duty cycle/position	%	16	8	0	100	255	0			6		
+69	EGR_A_ERR	EGR A error	%	24	8	0	100	128	-100			5		
+69	EGR_B_CMD	Commanded EGR B duty cycle/position	%	32	8	0	100	255	0			4		
+69	EGR_B_ACT	Actual EGR B duty cycle/position	%	40	8	0	100	255	0			3		
+69	EGR_B_ERR	EGR B error	%	48	8	0	100	128	-100			2		
+6A	IAF_A_CMD	Commanded intake air flow A control	%	8	8	0	100	255	0			7		
+6A	IAF_A_REL	Relative intake air flow A position	%	16	8	0	100	255	0			6		
+6A	IAF_B_CMD	Commanded intake air flow B control	%	24	8	0	100	255	0			5		
+6A	IAF_B_REL	Relative intake air flow B position	%	32	8	0	100	255	0			4		
+6B	EGRTA	Exhaust Gas Recirculation Temp Sensor A (Bank 1, Sensor 1)	degC	8	8	0	1	1	-40			7		
+6B	EGRTC	Exhaust Gas Recirculation Temp Sensor C (Bank 1, Sensor 2)	degC	16	8	0	1	1	-40			6		
+6B	EGRTB	Exhaust Gas Recirculation Temp Sensor B (Bank 2, Sensor 1)	degC	24	8	0	1	1	-40			5		
+6B	EGRTD	Exhaust Gas Recirculation Temp Sensor D (Bank 2, Sensor 2)	degC	32	8	0	1	1	-40			4		
+6C	TAC_A_CMD	Commanded Throttle Actuator A Control	%	8	8	0	100	255	0			7		
+6C	TP_A_REL	Relative Throttle A Position	%	16	8	0	100	255	0			6		
+6C	TAC_B_CMD	Commanded Throttle Actuator B Control	%	24	8	0	100	255	0			5		
+6C	TP_B_REL	Relative Throttle B Position	%	32	8	0	100	255	0			4		
+6D	FRP_A_CMD	Commanded Fuel Rail Pressure A	kPa	8	16	0	10	1	0			7		
+6D	FRP_A	Fuel Rail Pressure A	kPa	24	16	0	10	1	0			6		
+6D	FRT_A	Fuel Rail Temperature A	degC	40	8	0	1	1	-40			5		
+6D	FRP_B_CMD	Commanded Fuel Rail Pressure B	kPa	48	16	0	10	1	0			4		
+6D	FRP_B	Fuel Rail Pressure B	kPa	64	16	0	10	1	0			3		
+6D	FRT_B	Fuel Rail Temperature B	degC	80	8	0	1	1	-40			2		
+6E	ICP_A_CMD	Commanded injection control pressure A	kPa	8	16	0	10	1	0			7		
+6E	ICP_A	Injection control pressure A	kPa	24	16	0	10	1	0			6		
+6E	ICP_B_CMD	Commanded injection control pressure B	kPa	40	16	0	10	1	0			5		
+6E	ICP_B	Injection control pressure B	kPa	56	16	0	10	1	0			4		
+6F	TCIP_A	Turbocharger compressor inlet pressure A	kPa	8	8	0	1	1	0			7,5		5
+6F	TCIP_B	Turbocharger compressor inlet pressure B	kPa	16	8	0	1	1	0			6,4		4
+70	BP_A_CMD	Commanded boost pressure A	kPa	8	16	0	1	32	0			7		
+70	BP_A_ACT	Boost pressure sensor A	kPa	24	16	0	1	32	0			6		
+70	BP_B_CMD	Commanded boost pressure B	kPa	40	16	0	1	32	0			4		
+70	BP_B_ACT	Boost pressure sensor B	kPa	56	16	0	1	32	0			3		
+71	VGT_A_CMD	Commanded variable geometry turbo A position	%	8	8	0	100	255	0			7		
+71	VGT_A_ACT	Variable geometry turbo A position	%	16	8	0	100	255	0			6		
+71	VGT_B_CMD	Commanded variable geometry turbo B position	%	24	8	0	100	255	0			4		
+71	VGT_B_ACT	Variable geometry turbo B position	%	32	8	0	100	255	0			3		
+72	WG_A_CMD	Commanded wastegate A position	%	8	8	0	100	255	0			7		
+72	WG_A_ACT	Wastegate A position	%	16	8	0	100	255	0			6		
+72	WG_B_CMD	Commanded wastegate B position	%	24	8	0	100	255	0			5		
+72	WG_B_ACT	Wastegate B position	%	32	8	0	100	255	0			4		
+73	EP_11	Exhaust pressure bank 1, sensor 1	kPa	8	16	0	1	100	0			7		
+73	EP_21	Exhaust pressure bank 2, sensor 1	kPa	24	16	0	1	100	0			6		
+74	TCA_RPM	Turbocharger A speed	rpm	8	16	0	10	1	0			7		
+74	TCB_RPM	Turbocharger B speed	rpm	24	16	0	10	1	0			6		
+75	TCA_CINT	Turbocharger A compressor inlet temperature	degC	8	8	0	1	1	-40			7		
+75	TCA_COUTT	Turbocharger A compressor outlet temperature	degC	16	8	0	1	1	-40			6		
+75	TCA_TINT	Turbocharger A turbine inlet temperature	degC	24	16	0	1	10	-40			5		
+75	TCA_TOUTT	Turbocharger A turbine outlet temperature	degC	40	16	0	1	10	-40			4		
+76	TCB_CINT	Turbocharger B compressor inlet temperature	degC	8	8	0	1	1	-40			7		
+76	TCB_COUTT	Turbocharger B compressor outlet temperature	degC	16	8	0	1	1	-40			6		
+76	TCB_TINT	Turbocharger B turbine inlet temperature	degC	24	16	0	1	10	-40			5		
+76	TCB_TOUTT	Turbocharger B turbine outlet temperature	degC	40	16	0	1	10	-40			4		
+77	CACT_11	Charge air cooler temperature bank 1, sensor 1	degC	8	8	0	1	1	-40			7		
+77	CACT_12	Charge air cooler temperature bank 1, sensor 2	degC	16	8	0	1	1	-40			6		
+77	CACT_21	Charge air cooler temperature bank 2, sensor 1	degC	24	8	0	1	1	-40			5		
+77	CACT_22	Charge air cooler temperature bank 2, sensor 2	degC	32	8	0	1	1	-40			4		
+78	EGT11	Exhaust gas temperature bank 1, sensor 1	degC	8	16	0	1	10	-40			7		
+78	EGT12	Exhaust gas temperature bank 1, sensor 2	degC	24	16	0	1	10	-40			6		
+78	EGT13	Exhaust gas temperature bank 1, sensor 3	degC	40	16	0	1	10	-40			5		
+78	EGT14	Exhaust gas temperature bank 1, sensor 4	degC	56	16	0	1	10	-40			4		
+79	EGT21	Exhaust gas temperature bank 2, sensor 1	degC	8	16	0	1	10	-40			7		
+79	EGT22	Exhaust gas temperature bank 2, sensor 2	degC	24	16	0	1	10	-40			6		
+79	EGT23	Exhaust gas temperature bank 2, sensor 3	degC	40	16	0	1	10	-40			5		
+79	EGT24	Exhaust gas temperature bank 2, sensor 4	degC	56	16	0	1	10	-40			4		
+7A	DPF1_DP	Particulate filter bank 1 delta pressure	kPa	8	16	1	1	100	0			7		
+7A	DPF1_INP	Particulate filter bank 1 inlet pressure	kPa	24	16	0	1	100	0			6		
+7A	DPF1_OUTP	Particulate filter bank 1 outlet pressure	kPa	40	16	0	1	100	0			5		
+7B	DPF2_DP	Particulate filter bank 2 delta pressure	kPa	8	16	1	1	100	0			7		
+7B	DPF2_INP	Particulate filter bank 2 inlet pressure	kPa	24	16	0	1	100	0			6		
+7B	DPF2_OUTP	Particulate filter bank 2 outlet pressure	kPa	40	16	0	1	100	0			5		
+7C	DPF1_INT	Particulate filter bank 1 inlet temperature	degC	8	16	0	1	10	-40			7		
+7C	DPF1_OUTT	Particulate filter bank 1 outlet temperature	degC	24	16	0	1	10	-40			6		
+7C	DPF2_INT	Particulate filter bank 2 inlet temperature	degC	40	16	0	1	10	-40			5		
+7C	DPF2_OUTT	Particulate filter bank 2 outlet temperature	degC	56	16	0	1	10	-40			4		
+7F	RUN_TIME	Total Engine Run Time	s	8	32	0	1	1	0			7		
+7F	IDLE_TIME	Total Idle Run Time	s	40	32	0	1	1	0			6		
+7F	PTO_TIME	Total Run Time With PTO Active	s	72	32	0	1	1	0			5		
+81	AECD1_TIME1	Total run time with EI-AECD #1 timer 1 active	s	8	32	0	1	1	0			7		
+81	AECD1_TIME2	Total run time with EI-AECD #1 timer 2 active	s	40	32	0	1	1	0			7		
+81	AECD2_TIME1	Total run time with EI-AECD #2 timer 1 active	s	72	32	0	1	1	0			6		
+81	AECD2_TIME2	Total run time with EI-AECD #2 timer 2 active	s	104	32	0	1	1	0			6		
+81	AECD3_TIME1	Total run time with EI-AECD #3 timer 1 active	s	136	32	0	1	1	0			5		
+81	AECD3_TIME2	Total run time with EI-AECD #3 timer 2 active	s	168	32	0	1	1	0			5		
+81	AECD4_TIME1	Total run time with EI-AECD #4 timer 1 active	s	200	32	0	1	1	0			4		
+81	AECD4_TIME2	Total run time with EI-AECD #4 timer 2 active	s	232	32	0	1	1	0			4		
+81	AECD5_TIME1	Total run time with EI-AECD #5 timer 1 active	s	264	32	0	1	1	0			3		
+81	AECD5_TIME2	Total run time with EI-AECD #5 timer 2 active	s	296	32	0	1	1	0			3		
+82	AECD6_TIME1	Total run time with EI-AECD #6 timer 1 active	s	8	32	0	1	1	0			7		
+82	AECD6_TIME2	Total run time with EI-AECD #6 timer 2 active	s	40	32	0	1	1	0			7		
+82	AECD7_TIME1	Total run time with EI-AECD #7 timer 1 active	s	72	32	0	1	1	0			6		
+82	AECD7_TIME2	Total run time with EI-AECD #7 timer 2 active	s	104	32	0	1	1	0			6		
+82	AECD8_TIME1	Total run time with EI-AECD #8 timer 1 active	s	136	32	0	1	1	0			5		
+82	AECD8_TIME2	Total run time with EI-AECD #8 timer 2 active	s	168	32	0	1	1	0			5		
+82	AECD9_TIME1	Total run time with EI-AECD #9 timer 1 active	s	200	32	0	1	1	0			4		
+82	AECD9_TIME2	Total run time with EI-AECD #9 timer 2 active	s	232	32	0	1	1	0			4		
+82	AECD10_TIME1	Total run time with EI-AECD #10 timer 1 active	s	264	32	0	1	1	0			3		
+82	AECD10_TIME2	Total run time with EI-AECD #10 timer 2 active	s	296	32	0	1	1	0			3		
+83	NOX11	NOx concentration bank 1, sensor 1	ppm	8	16	0	1	1	0		65535	7	3	
+83	NOX12	NOx concentration bank 1, sensor 2	ppm	24	16	0	1	1	0		65535	6	2	
+83	NOX21	NOx concentration bank 2, sensor 1	ppm	40	16	0	1	1	0		65535	5	1	
+83	NOX22	NOx concentration bank 2, sensor 2	ppm	56	16	0	1	1	0		65535	4	0	
+84	MST	Manifold surface temperature	degC	0	8	0	1	1	-40					
+85	REAG_RATE	Average reagent consumption	L/h	8	16	0	1	200	0			7		
+85	REAG_DEMD	Average demanded reagent consumption	L/h	24	16	0	1	200	0			6		
+85	REAG_LVL	Reagent tank level	%	40	8	0	100	255	0			5		
+85	NWI_TIME	Run time with NOx warning active	s	48	32	0	1	1	0			4		
+86	PM11	PM mass concentration bank 1, sensor 1	mg/m³	8	16	0	1	80	0			7		
+86	PM21	PM mass concentration bank 2, sensor 1	mg/m³	24	16	0	1	80	0			6		
+87	MAP_A	Intake manifold absolute pressure A	kPa	8	16	0	1	32	0			7		
+87	MAP_B	Intake manifold absolute pressure B	kPa	24	16	0	1	32	0			6		
+88	SCR_IND_DIST_1N	Distance with SCR inducement active in the current 10,000 km block	km	24	16	0	1	1	0					
+88	SCR_IND_DIST_1D	Distance travelled in the current 10,000 km block	km	40	16	0	1	1	0					
+88	SCR_IND_DIST_2N	Distance with SCR inducement active in the 10,000-20,000 km block	km	56	16	0	1	1	0					
+88	SCR_IND_DIST_3N	Distance with SCR inducement active in the 20,000-30,000 km block	km	72	16	0	1	1	0					
+88	SCR_IND_DIST_4N	Distance with SCR inducement active in the 30,000-40,000 km block	km	88	16	0	1	1	0					
+89	AECD11_TIME1	Total run time with EI-AECD #11 timer 1 active	s	8	32	0	1	1	0			7		
+89	AECD11_TIME2	Total run time with EI-AECD #11 timer 2 active	s	40	32	0	1	1	0			7		
+89	AECD12_TIME1	Total run time with EI-AECD #12 timer 1 active	s	72	32	0	1	1	0			6		
+89	AECD12_TIME2	Total run time with EI-AECD #12 timer 2 active	s	104	32	0	1	1	0			6		
+89	AECD13_TIME1	Total run time with EI-AECD #13 timer 1 active	s	136	32	0	1	1	0			5		
+89	AECD13_TIME2	Total run time with EI-AECD #13 timer 2 active	s	168	32	0	1	1	0			5		
+89	AECD14_TIME1	Total run time with EI-AECD #14 timer 1 active	s	200	32	0	1	1	0			4		
+89	AECD14_TIME2	Total run time with EI-AECD #14 timer 2 active	s	232	32	0	1	1	0			4		
+89	AECD15_TIME1	Total run time with EI-AECD #15 timer 1 active	s	264	32	0	1	1	0			3		
+89	AECD15_TIME2	Total run time with EI-AECD #15 timer 2 active	s	296	32	0	1	1	0			3		
+8A	AECD16_TIME1	Total run time with EI-AECD #16 timer 1 active	s	8	32	0	1	1	0			7		
+8A	AECD16_TIME2	Total run time with EI-AECD #16 timer 2 active	s	40	32	0	1	1	0			7		
+8A	AECD17_TIME1	Total run time with EI-AECD #17 timer 1 active	s	72	32	0	1	1	0			6		
+8A	AECD17_TIME2	Total run time with EI-AECD #17 timer 2 active	s	104	32	0	1	1	0			6		
+8A	AECD18_TIME1	Total run time with EI-AECD #18 timer 1 active	s	136	32	0	1	1	0			5		
+8A	AECD18_TIME2	Total run time with EI-AECD #18 timer 2 active	s	168	32	0	1	1	0			5		
+8A	AECD19_TIME1	Total run time with EI-AECD #19 timer 1 active	s	200	32	0	1	1	0			4		
+8A	AECD19_TIME2	Total run time with EI-AECD #19 timer 2 active	s	232	32	0	1	1	0			4		
+8A	AECD20_TIME1	Total run time with EI-AECD #20 timer 1 active	s	264	32	0	1	1	0			3		
+8A	AECD20_TIME2	Total run time with EI-AECD #20 timer 2 active	s	296	32	0	1	1	0			3		
+8B	PF_REGEN_PCT	Normalized trigger for particulate filter regen	%	16	8	0	100	255	0			3		
+8B	PF_REGEN_AVGT	Average time between particulate filter regens	min	24	16	0	1	1	0			2		
+8B	PF_REGEN_AVGD	Average distance between particulate filter regens	km	40	16	0	1	1	0			1		
+8C	O2S11_PCT	O2 concentration bank 1, sensor 1	%	8	16	0	100	65535	0			7		
+8C	O2S12_PCT	O2 concentration bank 1, sensor 2	%	24	16	0	100	65535	0			6		
+8C	O2S21_PCT	O2 concentration bank 2, sensor 1	%	40	16	0	100	65535	0			5		
+8C	O2S22_PCT	O2 concentration bank 2, sensor 2	%	56	16	0	100	65535	0			4		
+8C	LAMBDA11	O2 sensor lambda bank 1, sensor 1	ratio	72	16	0	1	8192	0			3		
+8C	LAMBDA12	O2 sensor lambda bank 1, sensor 2	ratio	88	16	0	1	8192	0			2		
+8C	LAMBDA21	O2 sensor lambda bank 2, sensor 1	ratio	104	16	0	1	8192	0			1		
+8C	LAMBDA22	O2 sensor lambda bank 2, sensor 2	ratio	120	16	0	1	8192	0			0		
+8D	TP_G	Absolute Throttle Position G	%	0	8	0	100	255	0					
+8E	TQ_FR	Engine Friction - Percent Torque	%	0	8	0	1	1	-125					
+8F	PM11_OUT	PM sensor normalized output bank 1, sensor 1	%	16	16	1	1	100	0			6		
+8F	PM21_OUT	PM sensor normalized output bank 2, sensor 1	%	40	16	1	1	100	0			4		
+90	VOBD_MI_TIME	Engine hours with the continuous MI active	h	8	16	0	1	1	0					
+91	OBD_MI_TIME	ECU engine hours with the continuous MI active	h	8	16	0	1	1	0					
+91	OBD_B1_TIME	Highest ECU class B1 malfunction counter	h	24	16	0	1	1	0					
+93	MI_TIME_CUM	Cumulative engine hours with the continuous MI active	h	8	16	0	1	1	0			7		
+94	REAG_QUAL_TIME	Engine hours with incorrect reagent quality	h	16	16	0	1	1	0		65535	6		
+94	REAG_CON_TIME	Engine hours with incorrect reagent consumption	h	32	16	0	1	1	0		65535	5		
+94	REAG_DOSE_TIME	Engine hours with reagent dosing interrupted	h	48	16	0	1	1	0		65535	4		
+94	EGR_TIME	Engine hours with an impeded EGR valve	h	64	16	0	1	1	0		65535	3		
+94	MON_SYS_TIME	Engine hours with a NOx control monitoring system fault	h	80	16	0	1	1	0		65535	2		
+95	SCR_NH3_TGT_A	Target SCR catalyst A NH3 storage	g/L	8	16	0	1	10000	0			7		
+95	SCR_NH3_ACT_A	Actual SCR catalyst A NH3 storage	g/L	24	16	0	1	10000	0			6		
+95	SCR_NH3_TGT_B	Target SCR catalyst B NH3 storage	g/L	40	16	0	1	10000	0			5		
+95	SCR_NH3_ACT_B	Actual SCR catalyst B NH3 storage	g/L	56	16	0	1	10000	0			4		
+96	HC_INJ_FL	Hydrocarbon doser flow rate	g/s	8	16	0	1	1200	0			7		
+96	HC_INJ_DC	Hydrocarbon doser injector duty cycle	%	24	8	0	100	255	0			6		
+96	AFT_FP	Aftertreatment fuel pressure	kPa	32	16	0	1	10	0			5		
+97	NOX_EO	Engine-out NOx mass emission rate	g/s	8	16	0	1	10000	0		6.5535	7		
+97	NOX_TP	Tailpipe NOx mass emission rate	g/s	24	16	0	1	10000	0		6.5535	6		
+98	EGT15	Exhaust gas temperature bank 1 sensor 5	degC	8	16	0	1	10	-40			7		
+98	EGT16	Exhaust gas temperature bank 1 sensor 6	degC	24	16	0	1	10	-40			6		
+98	EGT17	Exhaust gas temperature bank 1 sensor 7	degC	40	16	0	1	10	-40			5		
+98	EGT18	Exhaust gas temperature bank 1 sensor 8	degC	56	16	0	1	10	-40			4		
+99	EGT25	Exhaust gas temperature bank 2 sensor 5	degC	8	16	0	1	10	-40			7		
+99	EGT26	Exhaust gas temperature bank 2 sensor 6	degC	24	16	0	1	10	-40			6		
+99	EGT27	Exhaust gas temperature bank 2 sensor 7	degC	40	16	0	1	10	-40			5		
+99	EGT28	Exhaust gas temperature bank 2 sensor 8	degC	56	16	0	1	10	-40			4		
+9A	HEV_BATT_V	Hybrid/EV Battery System Voltage	V	16	16	0	1	64	0			6		
+9A	HEV_BATT_A	Hybrid/EV Battery System Current	A	32	16	1	1	10	0			5		
+9B	DEF_CON	DEF concentration	%	8	8	0	1	4	0			6		
+9B	DEF_T	DEF tank temperature	degC	16	8	0	1	1	-40			5		
+9B	DEF_LVL	DEF tank level	%	24	8	0	100	255	0			4		
+9C	O2S13_PCT	O2 concentration bank 1, sensor 3	%	8	16	0	100	65535	0			7		
+9C	O2S14_PCT	O2 concentration bank 1, sensor 4	%	24	16	0	100	65535	0			6		
+9C	O2S23_PCT	O2 concentration bank 2, sensor 3	%	40	16	0	100	65535	0			5		
+9C	O2S24_PCT	O2 concentration bank 2, sensor 4	%	56	16	0	100	65535	0			4		
+9C	LAMBDA13	O2 sensor lambda bank 1, sensor 3	ratio	72	16	0	1	8192	0			3		
+9C	LAMBDA14	O2 sensor lambda bank 1, sensor 4	ratio	88	16	0	1	8192	0			2		
+9C	LAMBDA23	O2 sensor lambda bank 2, sensor 3	ratio	104	16	0	1	8192	0			1		
+9C	LAMBDA24	O2 sensor lambda bank 2, sensor 4	ratio	120	16	0	1	8192	0			0		
+9D	FUEL_RATE_ALT	Engine fuel rate (alternate)	g/s	0	16	0	1	50	0					
+9D	VFUEL_RATE	Vehicle fuel rate	g/s	16	16	0	1	50	0					
+9E	EXH_RATE	Engine exhaust flow rate	kg/h	0	16	0	1	5	0					
+9F	FUELSYSA_B1	Fuel system A use percentage bank 1	%	8	8	0	100	255	0			7		
+9F	FUELSYSB_B1	Fuel system B use percentage bank 1	%	16	8	0	100	255	0			6		
+9F	FUELSYSA_B2	Fuel system A use percentage bank 2	%	24	8	0	100	255	0			5		
+9F	FUELSYSB_B2	Fuel system B use percentage bank 2	%	32	8	0	100	255	0			4		
+9F	FUELSYSA_B3	Fuel system A use percentage bank 3	%	40	8	0	100	255	0			3		
+9F	FUELSYSB_B3	Fuel system B use percentage bank 3	%	48	8	0	100	255	0			2		
+9F	FUELSYSA_B4	Fuel system A use percentage bank 4	%	56	8	0	100	255	0			1		
+9F	FUELSYSB_B4	Fuel system B use percentage bank 4	%	64	8	0	100	255	0			0		
+A1	NOXC11	Corrected NOx concentration bank 1, sensor 1	ppm	8	16	0	1	1	0		65535	7	3	
+A1	NOXC12	Corrected NOx concentration bank 1, sensor 2	ppm	24	16	0	1	1	0		65535	6	2	
+A1	NOXC21	Corrected NOx concentration bank 2, sensor 1	ppm	40	16	0	1	1	0		65535	5	1	
+A1	NOXC22	Corrected NOx concentration bank 2, sensor 2	ppm	56	16	0	1	1	0		65535	4	0	
+A2	CYL_RATE	Cylinder fuel rate	mg/stroke	0	16	0	1	32	0					
+A3	EVAP_A_VP	Evap system vapor pressure A	kPa	8	16	1	1	4000	0			7		
+A3	EVAP_A_VPW	Evap system vapor pressure A, wide range	kPa	24	16	1	1	500	0			6		
+A3	EVAP_B_VP	Evap system vapor pressure B	kPa	40	16	1	1	4000	0			5		
+A3	EVAP_B_VPW	Evap system vapor pressure B, wide range	kPa	56	16	1	1	500	0			4		
+A4	GEAR_ACT	Transmission actual gear	gear	8	4	0	1	1	0			7		
+A4	GEAR_RAT	Transmission actual gear ratio	ratio	16	16	0	1	1000	0			6		
+A5	DEF_CMD	Commanded DEF dosing	%	8	8	0	1	2	0			7		
+A5	DEF_UCDC	DEF used in the current driving cycle	L	16	16	0	1	2000	0			6		
+A6	ODO	Odometer	km	0	32	0	1	10	0					
+A7	NOX13	NOx concentration bank 1, sensor 3	ppm	8	16	0	1	1	0		65535	7	3	
+A7	NOX14	NOx concentration bank 1, sensor 4	ppm	24	16	0	1	1	0		65535	6	2	
+A7	NOX23	NOx concentration bank 2, sensor 3	ppm	40	16	0	1	1	0		65535	5	1	
+A7	NOX24	NOx concentration bank 2, sensor 4	ppm	56	16	0	1	1	0		65535	4	0	
+A8	NOXC13	Corrected NOx concentration bank 1, sensor 3	ppm	8	16	0	1	1	0		65535	7	3	
+A8	NOXC14	Corrected NOx concentration bank 1, sensor 4	ppm	24	16	0	1	1	0		65535	6	2	
+A8	NOXC23	Corrected NOx concentration bank 2, sensor 3	ppm	40	16	0	1	1	0		65535	5	1	
+A8	NOXC24	Corrected NOx concentration bank 2, sensor 4	ppm	56	16	0	1	1	0		65535	4	0	
+AA	V_SET	Maximum current vehicle speed limit	km/h	0	8	0	1	1	0					
+AB	FRP_AF	Alternative fuel rail pressure	kPa	8	16	0	1	32	0			7		
+AB	FRT_AF	Alternative fuel rail temperature	degC	24	8	0	1	1	-40			6		
+AB	FTP_AF	Alternative fuel tank pressure	kPa	32	16	0	1	8	0			5		
+AB	FTPW_AF	Alternative fuel tank pressure, wide range	kPa	48	16	0	1	1	0			4		
+AB	FTT_AF	Alternative fuel tank temperature	degC	64	8	0	2	1	-256			3		
+AC	DEFA_MAX	DEF doser A maximum dosing rate	kg/h	16	16	0	3	10000	0			6		
+AE	EVAP_PP	Evap system purge pressure	kPa	8	16	1	1	4000	0			7		
+AE	EVAP_PPW	Evap system purge pressure, wide range	kPa	24	16	1	1	500	0			6		
+AF	AIR_FL_TGT	Commanded fresh air flow	kg/h	0	16	0	1	20	0					
+B0	EGR_M_FL_A	EGR mass flow rate A	kg/h	8	16	0	1	20	0			7		
+B0	EGR_M_FL_B	EGR mass flow rate B	kg/h	24	16	0	1	20	0			6		
+B1	SHRTFT1_CI	Short term fuel trim bank 1, compression ignition	%	16	8	0	100	128	-100			5		
+B1	LONGFT1_CI	Long term fuel trim bank 1, compression ignition	%	24	8	0	100	128	-100			4		
+B1	SHRTFT2_CI	Short term fuel trim bank 2, compression ignition	%	32	8	0	100	128	-100			3		
+B1	LONGFT2_CI	Long term fuel trim bank 2, compression ignition	%	40	8	0	100	128	-100			2		
+B2	BAT_SOH	Traction battery pack State of Health	%	0	8	0	100	255	0					
+B3	HVESS_ACR	HV battery actual charge rate	kW	8	16	0	1	20	0					
+B3	HVESPA_ACR	HV battery pack A actual charge rate	kW	24	16	0	1	20	0			7		
+B3	HVESPB_ACR	HV battery pack B actual charge rate	kW	40	16	0	1	20	0			6		
+B3	HVESPC_ACR	HV battery pack C actual charge rate	kW	56	16	0	1	20	0			5		
+B3	HVESPD_ACR	HV battery pack D actual charge rate	kW	72	16	0	1	20	0			4		
+B3	HVESPE_ACR	HV battery pack E actual charge rate	kW	88	16	0	1	20	0			3		
+B3	HVESPF_ACR	HV battery pack F actual charge rate	kW	104	16	0	1	20	0			2		
+B3	HVESPG_ACR	HV battery pack G actual charge rate	kW	120	16	0	1	20	0			1		
+B3	HVESPH_ACR	HV battery pack H actual charge rate	kW	136	16	0	1	20	0			0		
+B4	HVESS_Temp	HV battery temperature	degC	8	8	0	1	1	-40					
+B4	HVESPA_Temp	HV battery pack A temperature	degC	16	8	0	1	1	-40			7		
+B4	HVESPB_Temp	HV battery pack B temperature	degC	24	8	0	1	1	-40			6		
+B4	HVESPC_Temp	HV battery pack C temperature	degC	32	8	0	1	1	-40			5		
+B4	HVESPD_Temp	HV battery pack D temperature	degC	40	8	0	1	1	-40			4		
+B4	HVESPE_Temp	HV battery pack E temperature	degC	48	8	0	1	1	-40			3		
+B4	HVESPF_Temp	HV battery pack F temperature	degC	56	8	0	1	1	-40			2		
+B4	HVESPG_Temp	HV battery pack G temperature	degC	64	8	0	1	1	-40			1		
+B4	HVESPH_Temp	HV battery pack H temperature	degC	72	8	0	1	1	-40			0		
+B5	HVESS_Cur	HV battery current	A	8	16	0	1	20	-1600					
+B5	HVESPA_Cur	HV battery pack A current	A	24	16	0	1	20	-1600			7		
+B5	HVESPB_Cur	HV battery pack B current	A	40	16	0	1	20	-1600			6		
+B5	HVESPC_Cur	HV battery pack C current	A	56	16	0	1	20	-1600			5		
+B5	HVESPD_Cur	HV battery pack D current	A	72	16	0	1	20	-1600			4		
+B5	HVESPE_Cur	HV battery pack E current	A	88	16	0	1	20	-1600			3		
+B5	HVESPF_Cur	HV battery pack F current	A	104	16	0	1	20	-1600			2		
+B5	HVESPG_Cur	HV battery pack G current	A	120	16	0	1	20	-1600			1		
+B5	HVESPH_Cur	HV battery pack H current	A	136	16	0	1	20	-1600			0		
+B6	HVESS_Volt	HV battery voltage	V	8	16	0	1	20	0					
+B6	HVESPA_Volt	HV battery pack A voltage	V	24	16	0	1	20	0			7		
+B6	HVESPB_Volt	HV battery pack B voltage	V	40	16	0	1	20	0			6		
+B6	HVESPC_Volt	HV battery pack C voltage	V	56	16	0	1	20	0			5		
+B6	HVESPD_Volt	HV battery pack D voltage	V	72	16	0	1	20	0			4		
+B6	HVESPE_Volt	HV battery pack E voltage	V	88	16	0	1	20	0			3		
+B6	HVESPF_Volt	HV battery pack F voltage	V	104	16	0	1	20	0			2		
+B6	HVESPG_Volt	HV battery pack G voltage	V	120	16	0	1	20	0			1		
+B6	HVESPH_Volt	HV battery pack H voltage	V	136	16	0	1	20	0			0		
+B7	HEV_BATT_MIN_CELL_T	HV battery minimum cell temperature	degC	8	8	0	1	1	-40			7		
+B7	HEV_BATT_MAX_CELL_T	HV battery maximum cell temperature	degC	16	8	0	1	1	-40			6		
+B7	HEV_BATT_AVG_CELL_T	HV battery average cell temperature	degC	24	8	0	1	1	-40			5		
+B7	HEV_BATT_BUS_BAR_T	HV battery bus bar temperature	degC	32	8	0	1	1	-40			4		
+B7	HEV_BATT_COOLANT_T	HV battery coolant temperature	degC	40	8	0	1	1	-40			3		
+B8	HEV_BATT_BAL_TIME	HV battery active time since cell balancing	min	0	16	0	1	1	0					
+B9	HEV_BATT_MIN_CELL_V	HV battery minimum cell voltage	V	0	16	0	1	1000	0					
+B9	HEV_BATT_MAX_CELL_V	HV battery maximum cell voltage	V	16	16	0	1	1000	0					
+BA	HEV_BATT_PWR_AVAIL	HV battery continuous rated power available	%	0	8	0	100	255	0					
+BA	HEV_BATT_CHG_I_LIM	HV battery continuous charge current limit	A	8	16	1	1	10	0					
+BA	HEV_BATT_DCHG_I_LIM	HV battery continuous discharge current limit	A	24	16	1	1	10	0					
+BB	HVESS_Enrg_In	HV battery cumulative energy in	kWh	8	32	0	1	1	0					
+BB	HVESPA_Enrg_In	HV battery pack A cumulative energy in	kWh	40	32	0	1	1	0			7		
+BB	HVESPB_Enrg_In	HV battery pack B cumulative energy in	kWh	72	32	0	1	1	0			6		
+BB	HVESPC_Enrg_In	HV battery pack C cumulative energy in	kWh	104	32	0	1	1	0			5		
+BB	HVESPD_Enrg_In	HV battery pack D cumulative energy in	kWh	136	32	0	1	1	0			4		
+BB	HVESPE_Enrg_In	HV battery pack E cumulative energy in	kWh	168	32	0	1	1	0			3		
+BB	HVESPF_Enrg_In	HV battery pack F cumulative energy in	kWh	200	32	0	1	1	0			2		
+BB	HVESPG_Enrg_In	HV battery pack G cumulative energy in	kWh	232	32	0	1	1	0			1		
+BB	HVESPH_Enrg_In	HV battery pack H cumulative energy in	kWh	264	32	0	1	1	0			0		
+BC	HVESS_Enrg_Out	HV battery cumulative energy out	kWh	8	32	0	1	1	0					
+BC	HVESPA_Enrg_Out	HV battery pack A cumulative energy out	kWh	40	32	0	1	1	0			7		
+BC	HVESPB_Enrg_Out	HV battery pack B cumulative energy out	kWh	72	32	0	1	1	0			6		
+BC	HVESPC_Enrg_Out	HV battery pack C cumulative energy out	kWh	104	32	0	1	1	0			5		
+BC	HVESPD_Enrg_Out	HV battery pack D cumulative energy out	kWh	136	32	0	1	1	0			4		
+BC	HVESPE_Enrg_Out	HV battery pack E cumulative energy out	kWh	168	32	0	1	1	0			3		
+BC	HVESPF_Enrg_Out	HV battery pack F cumulative energy out	kWh	200	32	0	1	1	0			2		
+BC	HVESPG_Enrg_Out	HV battery pack G cumulative energy out	kWh	232	32	0	1	1	0			1		
+BC	HVESPH_Enrg_Out	HV battery pack H cumulative energy out	kWh	264	32	0	1	1	0			0		
+BD	HVESS_Enrg_Tput	HV battery total energy throughput	kWh	8	32	0	1	10	0					
+BD	HVESPA_Enrg_Tput	HV battery pack A total energy throughput	kWh	40	32	0	1	10	0			7		
+BD	HVESPB_Enrg_Tput	HV battery pack B total energy throughput	kWh	72	32	0	1	10	0			6		
+BD	HVESPC_Enrg_Tput	HV battery pack C total energy throughput	kWh	104	32	0	1	10	0			5		
+BD	HVESPD_Enrg_Tput	HV battery pack D total energy throughput	kWh	136	32	0	1	10	0			4		
+BD	HVESPE_Enrg_Tput	HV battery pack E total energy throughput	kWh	168	32	0	1	10	0			3		
+BD	HVESPF_Enrg_Tput	HV battery pack F total energy throughput	kWh	200	32	0	1	10	0			2		
+BD	HVESPG_Enrg_Tput	HV battery pack G total energy throughput	kWh	232	32	0	1	10	0			1		
+BD	HVESPH_Enrg_Tput	HV battery pack H total energy throughput	kWh	264	32	0	1	10	0			0		
+BE	HVESS_SOH	HV battery state of health	%	8	8	0	2	5	0					
+BE	HVESPA_SOH	HV battery pack A state of health	%	16	8	0	2	5	0			7		
+BE	HVESPB_SOH	HV battery pack B state of health	%	24	8	0	2	5	0			6		
+BE	HVESPC_SOH	HV battery pack C state of health	%	32	8	0	2	5	0			5		
+BE	HVESPD_SOH	HV battery pack D state of health	%	40	8	0	2	5	0			4		
+BE	HVESPE_SOH	HV battery pack E state of health	%	48	8	0	2	5	0			3		
+BE	HVESPF_SOH	HV battery pack F state of health	%	56	8	0	2	5	0			2		
+BE	HVESPG_SOH	HV battery pack G state of health	%	64	8	0	2	5	0			1		
+BE	HVESPH_SOH	HV battery pack H state of health	%	72	8	0	2	5	0			0		
+BF	HVESS_MIN_SOC	HV battery recommended minimum state of charge	%	8	16	0	1	640	0					
+BF	HVESPA_MIN_SOC	HV battery pack A recommended minimum state of charge	%	24	16	0	1	640	0			7		
+BF	HVESPB_MIN_SOC	HV battery pack B recommended minimum state of charge	%	40	16	0	1	640	0			6		
+BF	HVESPC_MIN_SOC	HV battery pack C recommended minimum state of charge	%	56	16	0	1	640	0			5		
+BF	HVESPD_MIN_SOC	HV battery pack D recommended minimum state of charge	%	72	16	0	1	640	0			4		
+BF	HVESPE_MIN_SOC	HV battery pack E recommended minimum state of charge	%	88	16	0	1	640	0			3		
+BF	HVESPF_MIN_SOC	HV battery pack F recommended minimum state of charge	%	104	16	0	1	640	0			2		
+BF	HVESPG_MIN_SOC	HV battery pack G recommended minimum state of charge	%	120	16	0	1	640	0			1		
+BF	HVESPH_MIN_SOC	HV battery pack H recommended minimum state of charge	%	136	16	0	1	640	0			0		
+C1	HVESS_MAX_SOC	HV battery recommended maximum state of charge	%	8	16	0	1	640	0					
+C1	HVESPA_MAX_SOC	HV battery pack A recommended maximum state of charge	%	24	16	0	1	640	0			7		
+C1	HVESPB_MAX_SOC	HV battery pack B recommended maximum state of charge	%	40	16	0	1	640	0			6		
+C1	HVESPC_MAX_SOC	HV battery pack C recommended maximum state of charge	%	56	16	0	1	640	0			5		
+C1	HVESPD_MAX_SOC	HV battery pack D recommended maximum state of charge	%	72	16	0	1	640	0			4		
+C1	HVESPE_MAX_SOC	HV battery pack E recommended maximum state of charge	%	88	16	0	1	640	0			3		
+C1	HVESPF_MAX_SOC	HV battery pack F recommended maximum state of charge	%	104	16	0	1	640	0			2		
+C1	HVESPG_MAX_SOC	HV battery pack G recommended maximum state of charge	%	120	16	0	1	640	0			1		
+C1	HVESPH_MAX_SOC	HV battery pack H recommended maximum state of charge	%	136	16	0	1	640	0			0		
+C2	HVESS_DEnrg_CAP	HV battery discharge energy capacity	kWh	8	24	0	1	1000	0					
+C2	HVESPA_DEnrg_CAP	HV battery pack A discharge energy capacity	kWh	32	24	0	1	1000	0			7		
+C2	HVESPB_DEnrg_CAP	HV battery pack B discharge energy capacity	kWh	56	24	0	1	1000	0			6		
+C2	HVESPC_DEnrg_CAP	HV battery pack C discharge energy capacity	kWh	80	24	0	1	1000	0			5		
+C2	HVESPD_DEnrg_CAP	HV battery pack D discharge energy capacity	kWh	104	24	0	1	1000	0			4		
+C2	HVESPE_DEnrg_CAP	HV battery pack E discharge energy capacity	kWh	128	24	0	1	1000	0			3		
+C2	HVESPF_DEnrg_CAP	HV battery pack F discharge energy capacity	kWh	152	24	0	1	1000	0			2		
+C2	HVESPG_DEnrg_CAP	HV battery pack G discharge energy capacity	kWh	176	24	0	1	1000	0			1		
+C2	HVESPH_DEnrg_CAP	HV battery pack H discharge energy capacity	kWh	200	24	0	1	1000	0			0		
+C3	FLI_A	Fuel level input A	%	8	8	0	100	255	0			7		
+C3	FLI_B	Fuel level input B	%	16	8	0	100	255	0			6		
+C4	EXH_PM_TIME	Exhaust particulate control diagnostic time	s	0	32	0	1	1	0					
+C4	EXH_PM_OCC_CNT	Exhaust particulate control diagnostic count	count	32	32	0	1	1	0					
+C5	LFP_A	Low-pressure fuel pressure A	kPa	8	16	0	79	1000	0			7		
+C5	LFP_B	Low-pressure fuel pressure B	kPa	24	16	0	79	1000	0			6		
+C6	DPF_REMOVAL_BLOCKED_TIME	Engine hours with the particulate filter removed or blocked	h	16	16	0	1	1	0		65535	6		
+C6	LRIS_FAILURE_TIME	Engine hours with a liquid reagent injection system failure	h	32	16	0	1	1	0		65535	5		
+C6	PCD_FAILURE_TIME	Engine hours with a particulate control monitoring system fault	h	48	16	0	1	1	0		65535	4		
+C7	REFLASH_DIST	Distance since module reflash or replacement	km	0	16	0	1	1	0					
+C9	O2S15_PCT	O2 concentration bank 1, sensor 5	%	8	16	0	100	65535	0			7		
+C9	O2S16_PCT	O2 concentration bank 1, sensor 6	%	24	16	0	100	65535	0			6		
+C9	O2S25_PCT	O2 concentration bank 2, sensor 5	%	40	16	0	100	65535	0			5		
+C9	O2S26_PCT	O2 concentration bank 2, sensor 6	%	56	16	0	100	65535	0			4		
+C9	LAMBDA15	O2 sensor lambda bank 1, sensor 5	ratio	72	16	0	1	8192	0			3		
+C9	LAMBDA16	O2 sensor lambda bank 1, sensor 6	ratio	88	16	0	1	8192	0			2		
+C9	LAMBDA25	O2 sensor lambda bank 2, sensor 5	ratio	104	16	0	1	8192	0			1		
+C9	LAMBDA26	O2 sensor lambda bank 2, sensor 6	ratio	120	16	0	1	8192	0			0		
+CB	EP_12	Exhaust pressure bank 1, sensor 2	kPa	8	16	0	1	100	0			7		
+CB	EP_22	Exhaust pressure bank 2, sensor 2	kPa	24	16	0	1	100	0			6		
+CC	EMA_RPM	Electric motor A speed	rpm	8	16	1	1	1	0			7		
+CC	EMB_RPM	Electric motor B speed	rpm	24	16	1	1	1	0			6		
+CC	EMC_RPM	Electric motor C speed	rpm	40	16	1	1	1	0			5		
+CC	EMD_RPM	Electric motor D speed	rpm	56	16	1	1	1	0			4		
+CC	EME_RPM	Electric motor E speed	rpm	72	16	1	1	1	0			3		
+CC	EMF_RPM	Electric motor F speed	rpm	88	16	1	1	1	0			2		
+CC	EMG_RPM	Electric motor G speed	rpm	104	16	1	1	1	0			1		
+CC	EMH_RPM	Electric motor H speed	rpm	120	16	1	1	1	0			0		
+CD	EMA_TQ	Electric motor A torque	N·m	8	16	1	1	1	0			7		
+CD	EMB_TQ	Electric motor B torque	N·m	24	16	1	1	1	0			6		
+CD	EMC_TQ	Electric motor C torque	N·m	40	16	1	1	1	0			5		
+CD	EMD_TQ	Electric motor D torque	N·m	56	16	1	1	1	0			4		
+CD	EME_TQ	Electric motor E torque	N·m	72	16	1	1	1	0			3		
+CD	EMF_TQ	Electric motor F torque	N·m	88	16	1	1	1	0			2		
+CD	EMG_TQ	Electric motor G torque	N·m	104	16	1	1	1	0			1		
+CD	EMH_TQ	Electric motor H torque	N·m	120	16	1	1	1	0			0		
+CE	EVAP_C_VP	Evap system vapor pressure C	kPa	8	16	1	1	4000	0			7		
+CE	EVAP_C_VPW	Evap system vapor pressure C, wide range	kPa	24	16	1	1	500	0			6		
+CE	EVAP_D_VP	Evap system vapor pressure D	kPa	40	16	1	1	4000	0			5		
+CE	EVAP_D_VPW	Evap system vapor pressure D, wide range	kPa	56	16	1	1	500	0			4		
+CF	CATEMP_A	Catalyst temperature A	degC	8	16	0	1	10	-40			7		
+CF	CATEMP_B	Catalyst temperature B	degC	24	16	0	1	10	-40			6		
+CF	CATEMP_C	Catalyst temperature C	degC	40	16	0	1	10	-40			5		
+CF	CATEMP_D	Catalyst temperature D	degC	56	16	0	1	10	-40			4		
+D0	HEALTH_DIST	Distance since state of health update	km	8	16	0	1	1	0			7		
+D0	REMAINING_ESS_RSRV_CAP	HV battery remaining reserve energy	kWh	24	16	0	1	10	0			6		
+D0	INIT_ESS_RSRV_CAP	HV battery initial reserve energy	kWh	40	16	0	1	10	0			5		
+D1	HVESS_CHARGE_LIM	HV battery charging limit	kW	0	16	0	1	20	0					
+D1	HVESS_CHARGE_ACT	HV battery charging power	kW	16	16	0	1	20	0					
+D2	SOCE	State of certified energy	%	8	8	0	100	255	0			7		
+D2	SOCR	State of certified range	%	16	8	0	100	255	0			6		
+D3	ODO_ENG	Engine odometer	km	0	32	0	1	10	0					
+D4	HVESS_ENER	HV battery power over the last second	kW	0	32	1	36	10000000	0					
+D5	FC_VOLT	Fuel cell system voltage	V	8	16	0	1	20	0			7		
+D5	FC_FUEL_RATE	Fuel cell fuel consumption	g/s	24	16	0	1	2000	0			6		
+D5	FC_CUMUL_CURR	Fuel cell current over the last second	A	40	16	0	72	1000	0			5		
+D5	FC_CUMUL_ENER	Fuel cell power over the last second	kW	56	32	0	36	100000	0			4		
+D6	NUMPSATRIPSFLTMEMCLR	Propulsion system active trips since DTCs cleared	count	0	16	0	1	1	0					
+D7	DEFB_CMD	DEF doser B commanded dosing	%	8	8	0	1	2	0			7		
+D7	DEFB_MAX	DEF doser B maximum dosing rate	kg/h	24	16	0	3	10000	0			5		
+D9	CALCULATED_ESS_CAP	HV battery calculated usable energy	kWh	0	32	0	1	1000	0					
+DA	HVESS_CURR	HV battery current over the last second	A	0	32	1	36	10000	0					
+DC	AECD21_TIME1	Total run time with EI-AECD #21 timer 1 active	s	8	32	0	1	1	0			7		
+DC	AECD21_TIME2	Total run time with EI-AECD #21 timer 2 active	s	40	32	0	1	1	0			7		
+DC	AECD22_TIME1	Total run time with EI-AECD #22 timer 1 active	s	72	32	0	1	1	0			6		
+DC	AECD22_TIME2	Total run time with EI-AECD #22 timer 2 active	s	104	32	0	1	1	0			6		
+DC	AECD23_TIME1	Total run time with EI-AECD #23 timer 1 active	s	136	32	0	1	1	0			5		
+DC	AECD23_TIME2	Total run time with EI-AECD #23 timer 2 active	s	168	32	0	1	1	0			5		
+DC	AECD24_TIME1	Total run time with EI-AECD #24 timer 1 active	s	200	32	0	1	1	0			4		
+DC	AECD24_TIME2	Total run time with EI-AECD #24 timer 2 active	s	232	32	0	1	1	0			4		
+DC	AECD25_TIME1	Total run time with EI-AECD #25 timer 1 active	s	264	32	0	1	1	0			3		
+DC	AECD25_TIME2	Total run time with EI-AECD #25 timer 2 active	s	296	32	0	1	1	0			3		

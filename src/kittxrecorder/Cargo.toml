@@ -1,0 +1,32 @@
+[package]
+name = "kittx-recorder"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+publish = false
+
+[workspace]
+
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "KittxRecorder"
+path = "main.rs"
+required-features = ["ui"]
+
+[features]
+default = ["ui", "serial"]
+ui = ["dep:gpui-kit"]
+serial = ["kittx/serial", "dep:serial2"]
+ui-test = ["ui", "gpui-kit/test-support"]
+
+[dependencies]
+kittx = { path = "../..", default-features = false, features = ["datastore"] }
+gpui-kit = { version = "=0.7.3", optional = true }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+serial2 = { version = "0.2.37", optional = true }
+
+[dev-dependencies]
+kittx-viewer = { path = "../viewerui", default-features = false }

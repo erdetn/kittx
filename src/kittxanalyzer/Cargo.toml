@@ -1,0 +1,28 @@
+[package]
+name = "kittx-analyzer"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+publish = false
+
+[workspace]
+
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "KittxAnalyzer"
+path = "main.rs"
+required-features = ["ui"]
+
+[features]
+default = ["ui"]
+ui = ["dep:gpui-kit"]
+ui-test = ["ui", "gpui-kit/test-support"]
+
+[dependencies]
+kittx = { path = "../..", default-features = false, features = ["datastore"] }
+gpui-kit = { version = "=0.7.3", optional = true }
+rusqlite = { version = "0.37.0", features = ["bundled"] }
+reqwest = { version = "0.12.28", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+serde_json = "1.0"

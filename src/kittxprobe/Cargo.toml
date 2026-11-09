@@ -1,0 +1,32 @@
+[package]
+name = "kittx-probe"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+publish = false
+
+[workspace]
+
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "KittxProbe"
+path = "main.rs"
+required-features = ["ui"]
+
+[features]
+default = ["ui", "serial"]
+ui = ["dep:gpui-kit"]
+serial = ["kittx-recorder/serial", "dep:serial2"]
+ui-test = ["ui", "gpui-kit/test-support"]
+
+[dependencies]
+kittx = { path = "../..", default-features = false, features = ["datastore"] }
+kittx-recorder = { path = "../kittxrecorder", default-features = false }
+kittx-viewer = { path = "../viewerui", default-features = false }
+gpui-kit = { version = "=0.7.3", optional = true }
+rusqlite = { version = "0.37.0", features = ["bundled", "backup"] }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+serial2 = { version = "0.2.37", optional = true }

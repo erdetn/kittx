@@ -1,0 +1,26 @@
+[package]
+name = "kittx-viewer"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.92"
+publish = false
+
+[lib]
+path = "lib.rs"
+
+[features]
+default = ["ui"]
+ui = ["dep:gpui-kit"]
+ui-test = ["ui", "gpui-kit/test-support"]
+
+[workspace]
+
+[[bin]]
+name = "kittx-viewer"
+path = "main.rs"
+required-features = ["ui"]
+
+[dependencies]
+kittx = { path = "../..", default-features = false, features = ["datastore"] }
+gpui-kit = { version = "=0.7.3", optional = true }
+rusqlite = { version = "0.37.0", features = ["bundled", "functions"] }

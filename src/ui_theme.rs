@@ -1,0 +1,94 @@
+//! Shared desktop application styling, independent of the bridge library.
+use gpui_kit::component::Theme;
+use gpui_kit::*;
+
+pub(crate) fn apply(cx: &mut App) {
+    Theme::update(cx, |theme| {
+        theme.font_size = px(14.);
+        if !theme.is_dark() {
+            return;
+        }
+        // Muted navy surfaces with soft blue accents and cool, bright text.
+        let background = rgb(0x202c42).into();
+        let surface = rgb(0x293951).into();
+        let raised = rgb(0x344966).into();
+        let hover = rgb(0x405978).into();
+        let foreground = rgb(0xe3ecfa).into();
+        let muted_foreground = rgb(0xafbfd7).into();
+        let border = rgb(0x536b8c).into();
+        let primary = rgb(0xacc6f0).into();
+        let primary_hover = rgb(0xc2d5f5).into();
+        let primary_active = rgb(0x91b1e0).into();
+        let colors = &mut theme.colors;
+        colors.background = background;
+        colors.foreground = foreground;
+        colors.accordion = surface;
+        colors.sidebar = surface;
+        colors.sidebar_foreground = foreground;
+        colors.sidebar_border = border;
+        colors.sidebar_accent = raised;
+        colors.sidebar_accent_foreground = foreground;
+        colors.sidebar_primary = primary;
+        colors.sidebar_primary_foreground = background;
+        colors.title_bar = surface;
+        colors.title_bar_border = border;
+        colors.status_bar = surface;
+        colors.status_bar_border = border;
+        colors.popover = surface;
+        colors.popover_foreground = foreground;
+        colors.group_box = surface;
+        colors.group_box_foreground = foreground;
+        colors.border = border;
+        colors.input = border;
+        colors.muted = raised;
+        colors.muted_foreground = muted_foreground;
+        colors.accent = hover;
+        colors.accent_foreground = foreground;
+        colors.primary = primary;
+        colors.primary_hover = primary_hover;
+        colors.primary_active = primary_active;
+        colors.primary_foreground = background;
+        colors.button_primary = primary;
+        colors.button_primary_hover = primary_hover;
+        colors.button_primary_active = primary_active;
+        colors.button_primary_foreground = background;
+        colors.button = raised;
+        colors.button_hover = hover;
+        colors.button_active = border;
+        colors.button_foreground = foreground;
+        colors.secondary = raised;
+        colors.secondary_hover = hover;
+        colors.secondary_active = border;
+        colors.secondary_foreground = foreground;
+        colors.button_secondary = raised;
+        colors.button_secondary_hover = hover;
+        colors.button_secondary_active = border;
+        colors.button_secondary_foreground = foreground;
+        colors.list = surface;
+        colors.list_head = surface;
+        colors.list_even = background;
+        colors.list_hover = raised;
+        colors.list_active = hover;
+        colors.list_active_border = primary;
+        colors.table = surface;
+        colors.table_even = background;
+        colors.table_head = raised;
+        colors.table_head_foreground = foreground;
+        colors.table_foot = raised;
+        colors.table_foot_foreground = foreground;
+        colors.table_hover = raised;
+        colors.table_active = hover;
+        colors.table_active_border = primary;
+        colors.table_row_border = border;
+        colors.link = primary;
+        colors.link_hover = primary_hover;
+        colors.link_active = primary_active;
+        colors.ring = primary;
+        colors.caret = primary;
+        colors.selection = Hsla::from(rgb(0x8caee0)).alpha(0.3);
+        colors.scrollbar = background;
+        colors.scrollbar_thumb = border;
+        colors.scrollbar_thumb_hover = primary_active;
+        colors.chart_grid = border;
+    });
+}
